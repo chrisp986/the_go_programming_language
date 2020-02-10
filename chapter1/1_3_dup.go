@@ -42,6 +42,7 @@ func Dup2() {
 	for line, n := range counts {
 		if n > 1 {
 			fmt.Printf("%d\t%s\n", n, line)
+			fmt.Printf("%s\n", os.Args[0])
 		}
 	}
 
@@ -74,6 +75,6 @@ func Dup3() {
 
 func main() {
 	//Dup1()
-	//Dup2()
-	Dup3()
+	Dup2()
+	//Dup3()
 }
