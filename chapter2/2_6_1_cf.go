@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/chrisp986/the_go_programming_language/chapter2/tempconv"
 	"os"
 	"strconv"
-	//"the_go_programming_language/chapter2/tempconv"
 )
 
 func main() {
@@ -15,5 +15,6 @@ func main() {
 			os.Exit(1)
 		}
 		f := tempconv.Fahrenheit(t)
+		fmt.Println(f)
 	}
 }
