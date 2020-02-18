@@ -15,6 +15,7 @@ func main() {
 			os.Exit(1)
 		}
 		f := tempconv.Fahrenheit(t)
-		fmt.Println(f)
+		c := tempconv.Celsius(t)
+		fmt.Printf("%s = %s, %s = %s\n", f, tempconv.FToC(f), c, tempconv.CTof(c))
 	}
 }
