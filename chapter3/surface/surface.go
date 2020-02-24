@@ -12,14 +12,15 @@ const (
 	xyscale       = width / 2 / xyrange // pixels per x or y unit
 	zscale        = height * 0.4        // pixels per z unit
 	angle         = math.Pi / 6         // angle of x, y axes (30°)
+	color         = "#ff0000"
 )
 
 var sin30, cos30 = math.Sin(angle), math.Cos(angle) // sin(30°), cos(°30)
 
 func main() {
 	fmt.Printf("<svg xmlns= 'http://www.w3.org/2000/svg' "+
-		"style='stroke: grey; fill: white; stroke-width: 0.7' "+
-		"width='%d' height='%d'>", width, height)
+		"style='stroke: %s; fill: white; stroke-width: 0.7' "+
+		"width='%d' height='%d'>", color, width, height)
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			ax, ay := corner(i+1, j)
@@ -48,5 +49,8 @@ func corner(i, j int) (float64, float64) {
 
 func f(x, y float64) float64 {
 	r := math.Hypot(x, y) // distance from (0,0)
+	if math.IsInf(r, 0) { // Exercise 3.1
+		return 0
+	}
 	return math.Sin(r) / r
 }
