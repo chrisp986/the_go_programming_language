@@ -15,9 +15,9 @@ func main() {
 	)
 
 	img := image.NewRGBA(image.Rect(0, 0, width, height))
-	for py := 0; py < height*; py++ {
+	for py := 0; py < height; py++ {
 		y := float64(py)/height*(ymax-ymin) + ymin
-		for px := 0; px < width*; px++ {
+		for px := 0; px < width; px++ {
 			x := float64(px)/width*(xmax-xmin) + xmin
 			z := complex(x, y)
 
@@ -25,7 +25,7 @@ func main() {
 			img.Set(px, py, mandelbrot(z))
 		}
 	}
-	png.Encode(os.Stdout, img) // NOTE: ignoreing errors
+	png.Encode(os.Stdout, img) // NOTE: ignoring errors
 }
 
 func mandelbrot(z complex128) color.Color {
@@ -38,17 +38,17 @@ func mandelbrot(z complex128) color.Color {
 		if cmplx.Abs(v) > 2 {
 			//return color.Gray{255 - contrast*n}
 			return color.RGBA{
-				R: 50+contrast,
+				R: 50 + contrast,
 				G: n,
-				B: 255-contrast*n,
-				A: 255-n,
+				B: 255 - contrast*n,
+				A: 255 - n,
 			}
 		}
 	}
 	return color.RGBA{
-		R: 255-contrast,
+		R: 255 - contrast,
 		G: 0,
-		B: 255-contrast*2,
+		B: 255 - contrast*2,
 		A: 255,
 	}
 }
