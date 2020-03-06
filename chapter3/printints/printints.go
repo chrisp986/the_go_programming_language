@@ -22,5 +22,5 @@ func intToString(values []int) string {
 }
 
 func main() {
-	fmt.Println(intToString([]int{1, 2, 3}), " this ")
+	fmt.Println(intToString([]int{1, 2, 3}))
 }
